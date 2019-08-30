@@ -12,13 +12,12 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import java.util.ArrayList;
 import java.util.Observable;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnIntentString,btnIntentInteger;
-
-    MainViewModel mainViewModel;
+    Button btnIntentString,btnIntentInteger,btnIntentStringArray;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,31 +25,34 @@ public class MainActivity extends AppCompatActivity {
 
         btnIntentString = findViewById(R.id.buttonIntentString);
         btnIntentInteger = findViewById(R.id.buttonIntentInteger);
-        mainViewModel.getButtonText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(String text) {
-                btnIntentInteger.setText(text + "");
-            }
-        });
+        btnIntentStringArray = findViewById(R.id.buttonIntentStringArray);
+
         btnIntentString.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Screen2Activity.class);
-                intent.putExtra(Appconstant.KEY_STRING, "Xin chao");
-                startActivity(intent);
+                sendValueIntent(Appconstant.KEY_STRING,"Xin chao");
             }
         });
         btnIntentInteger.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Screen2Activity.class);
-                intent.putExtra(Appconstant.KEY_INTEGER, 10);
-                startActivity(intent);
-
+               sendValueIntent(Appconstant.KEY_INTEGER,10);
             }
         });
-
     }
+    //generic
+    private <T> void sendValueIntent(String key,T value){
+        Intent intent = new Intent(MainActivity.this, Screen2Activity.class);
+        if (value instanceof String){
+            //convert gia tri nhanh thong qua type casting
+            intent.putExtra(key,(String) value);
+        }
+        if (value instanceof Integer){
+            intent.putExtra(key,(Integer) value);
+        }
+        startActivity(intent);
+    }
+
 
 
 }
