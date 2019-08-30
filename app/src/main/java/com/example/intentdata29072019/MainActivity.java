@@ -10,22 +10,30 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnIntentString;
+    Button btnIntentString,btnIntentInteger;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         btnIntentString = findViewById(R.id.buttonIntentString);
+        btnIntentInteger = findViewById(R.id.buttonIntentInteger);
 
         btnIntentString.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,Screen2Activity.class);
-                intent.putExtra(Appconstant.KEY_STRING,"Xin chao");
+                Intent intent = new Intent(MainActivity.this, Screen2Activity.class);
+                intent.putExtra(Appconstant.KEY_STRING, "Xin chao");
                 startActivity(intent);
-
-//                1 phuog thuc xu ly cho tat ca kieu du lieu trong intent
+            }
+        });
+        btnIntentInteger.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Screen2Activity.class);
+                intent.putExtra(Appconstant.KEY_INTEGER, 10);
+                startActivity(intent);
             }
         });
     }

@@ -16,10 +16,17 @@ public class Screen2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_screen2);
 
         // 1 : Gui dang string
+//        Intent intent = getIntent();
+//        if (intent != null){
+//            String value = intent.getStringExtra(Appconstant.KEY_STRING);
+//            Log.d("BBB",value);
+//
+//        }
+        //2 : Gui dang integer
         Intent intent = getIntent();
         if (intent != null){
-            String value = intent.getStringExtra(Appconstant.KEY_STRING);
-            Log.d("BBB",value);
+            Integer value = intent.getIntExtra(Appconstant.KEY_INTEGER,Integer.MIN_VALUE );
+            Log.d("BBB",value.toString());
 
         }
     }
