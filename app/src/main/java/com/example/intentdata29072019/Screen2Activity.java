@@ -23,10 +23,24 @@ public class Screen2Activity extends AppCompatActivity {
 //
 //        }
         //2 : Gui dang integer
+//        Intent intent = getIntent();
+//        if (intent != null){
+//            Integer value = intent.getIntExtra(Appconstant.KEY_INTEGER,Integer.MIN_VALUE );
+//            Log.d("BBB",value.toString());
+//
+//        }
+        //3 : Gui dang string array
+//        Intent intent = getIntent();
+//        if (intent != null){
+//            String[] value = intent.getStringArrayExtra(Appconstant.KEY_STRING_ARRAY);
+//            Log.d("BBB",value.length + "");
+//
+//        }
+        //4 : Gui du lieu dang string
         Intent intent = getIntent();
         if (intent != null){
-            Integer value = intent.getIntExtra(Appconstant.KEY_INTEGER,Integer.MIN_VALUE );
-            Log.d("BBB",value.toString());
+            Sinhvien value = (Sinhvien) intent.getSerializableExtra(Appconstant.KEY_OBJECT);
+            Log.d("BBB",value.getTen() + "");
 
         }
     }
