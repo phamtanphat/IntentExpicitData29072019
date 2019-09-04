@@ -72,8 +72,10 @@ public class MainActivity extends AppCompatActivity {
                 sinhviens.add(new Sinhvien("Nguyen Van d"));
                 sinhviens.add(new Sinhvien("Nguyen Van e"));
                 sinhviens.add(new Sinhvien("Nguyen Van f"));
+
                 Intent intent= new Intent(MainActivity.this,Screen2Activity.class);
                 intent.putExtra(Appconstant.KEY_ARRAY_OBJECT, sinhviens);
+
                 startActivity(intent);
             }
         });
