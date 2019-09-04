@@ -20,7 +20,7 @@ import java.util.Observable;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnIntentString,btnIntentInteger,btnIntentStringArray,btnIntentObject;
+    Button btnIntentString,btnIntentInteger,btnIntentStringArray,btnIntentObject,btnIntentArrayObject;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         btnIntentInteger = findViewById(R.id.buttonIntentInteger);
         btnIntentStringArray = findViewById(R.id.buttonIntentStringArray);
         btnIntentObject = findViewById(R.id.buttonIntentObject);
+        btnIntentArrayObject = findViewById(R.id.buttonIntentArrayObject);
 
         btnIntentString.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,13 +59,22 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(Appconstant.KEY_OBJECT, sinhvien);
 
                 startActivity(intent);
+
+            }
+        });
+        btnIntentArrayObject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 ArrayList<Sinhvien> sinhviens = new ArrayList<>();
                 sinhviens.add(new Sinhvien("Nguyen Van a"));
-                sinhviens.add(new Sinhvien("Nguyen Van a"));
-                sinhviens.add(new Sinhvien("Nguyen Van a"));
-                sinhviens.add(new Sinhvien("Nguyen Van a"));
-                sinhviens.add(new Sinhvien("Nguyen Van a"));
-                sinhviens.add(new Sinhvien("Nguyen Van a"));
+                sinhviens.add(new Sinhvien("Nguyen Van b"));
+                sinhviens.add(new Sinhvien("Nguyen Van c"));
+                sinhviens.add(new Sinhvien("Nguyen Van d"));
+                sinhviens.add(new Sinhvien("Nguyen Van e"));
+                sinhviens.add(new Sinhvien("Nguyen Van f"));
+                Intent intent= new Intent(MainActivity.this,Screen2Activity.class);
+                intent.putExtra(Appconstant.KEY_ARRAY_OBJECT, sinhviens);
+                startActivity(intent);
             }
         });
 

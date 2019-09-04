@@ -29,4 +29,9 @@
         android:id="@+id/buttonIntentObject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+    <Button
+        android:text="Intent Array Object"
+        android:id="@+id/buttonIntentArrayObject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

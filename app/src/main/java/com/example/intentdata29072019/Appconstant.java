@@ -6,5 +6,6 @@ public class Appconstant {
     public static final String KEY_INTEGER = "so";
     public static final String KEY_STRING_ARRAY = "stringarray";
     public static final String KEY_OBJECT = "object";
+    public static final String KEY_ARRAY_OBJECT = "arrayobject";
 
 }

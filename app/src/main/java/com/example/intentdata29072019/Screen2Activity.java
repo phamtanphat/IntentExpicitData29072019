@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.Timer;
 
 public class Screen2Activity extends AppCompatActivity {
@@ -37,10 +38,17 @@ public class Screen2Activity extends AppCompatActivity {
 //
 //        }
         //4 : Gui du lieu dang string
+//        Intent intent = getIntent();
+//        if (intent != null){
+//            Sinhvien value = (Sinhvien) intent.getSerializableExtra(Appconstant.KEY_OBJECT);
+//            Log.d("BBB",value.getTen() + "");
+//
+//        }
+        //5 : Gui du lieu dang arrayobject
         Intent intent = getIntent();
         if (intent != null){
-            Sinhvien value = (Sinhvien) intent.getSerializableExtra(Appconstant.KEY_OBJECT);
-            Log.d("BBB",value.getTen() + "");
+            ArrayList<Sinhvien> value = intent.getParcelableArrayListExtra(Appconstant.KEY_ARRAY_OBJECT);
+            Log.d("BBB",value.size() + "");
 
         }
     }
